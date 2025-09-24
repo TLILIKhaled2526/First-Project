@@ -7,13 +7,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AuthorController extends AbstractController
 {
-    #[Route('/author/{{name}}', name: 'app_author_show')]
+    #[Route('/author/{name}', name: 'app_author_show')]
     public function showAuthor(string $name): Response
     {
         return $this->render('author/show.html.twig', [
             'name' => $name,
         ]);
     }
+    
 
     #[Route('/author', name: 'app_authors_list')]
     public function listAuthors(): Response
