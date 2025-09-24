@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des auteurs{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    {% if authors is defined and authors|length > 0 %}
+        <h2>Liste des auteurs ({{ authors|length }})</h2>
+
+        {% set total_books = 0 %}
+        <ul style="list-style:none; padding:0;">
+        {% for author in authors %}
+            {% set total_books = total_books + author.nb_books %}
+            <li style="margin-bottom:20px; border-bottom:1px solid #ccc; padding-bottom:10px;">
+                <img src="{{ author.picture }}" alt="{{ author.username }}" style="width:100px; border-radius:10px; vertical-align:middle;">
+                <span style="font-weight:bold; font-size:1.2rem; margin-left:10px;">{{ author.username|upper }}</span>
+                (Livres : {{ author.nb_books }})
+                <a href="{{ path('app_author_details', {'id': author.id}) }}" style="margin-left:15px; color:#4d79ff; text-decoration:none;">details</a>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <p><strong>Total des livres :</strong> {{ total_books }}</p>
+
+    {% else %}
+        <p>Aucun auteur disponible.</p>
+    {% endif %}
+</div>
+{% endblock %}

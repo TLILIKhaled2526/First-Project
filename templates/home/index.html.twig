@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div style="display:flex; justify-content:center; align-items:center; height:100vh; background:linear-gradient(135deg, #ff4d4d, #ffffff); font-family:sans-serif;">
+    <div style="background:white; padding:40px; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.2); text-align:center;">
+        <h1 style="color:#ff4d4d; font-size:3rem; margin-bottom:20px;">
+            {{ "Bonjour mes étudiants" }}
+        </h1>
+        <p style="color:#333; font-size:1.2rem;">Bienvenue sur ma première page Twig</p>
+    </div>
+</div>
+{% endblock %}

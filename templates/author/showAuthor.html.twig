@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'auteur{% endblock %}
+
+{% block body %}
+<div style="display:flex; justify-content:center; align-items:center; height:80vh; font-family:sans-serif;">
+    <div style="background:white; padding:40px; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.2); text-align:center;">
+        <img src="{{ author.picture }}" alt="{{ author.username }}" style="width:150px; border-radius:15px;">
+        <h1 style="color:#4d79ff; margin-top:20px;">{{ author.username|upper }}</h1>
+        <p>Email : {{ author.email }}</p>
+        <p>Nombre de livres : {{ author.nb_books }}</p>
+        <div style="margin-top:20px;">
+            <a href="{{ path('app_authors_list') }}" style="padding:10px 20px; background:#4d79ff; color:white; border-radius:10px; text-decoration:none;">Retour à la liste</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
